@@ -11,6 +11,7 @@ $(document).ready(function() {
       let body = JSON.parse(this.response);
       let types = [];
       
+      //Reset ID's and list types
       for (let i = 0; i < body.body.data.length; i++) {
         body.body.data[i].id = i;
         if (!types.includes(body.body.data[i].type)) {
@@ -18,6 +19,21 @@ $(document).ready(function() {
         }
       }
       
+      //List types on page
+      for (let i = 0; i < types.length; i++) {
+        $("#furnitureTypes").append(`<li class="type" id="${types[i]}"><strong>${types[i]}</strong></li>`);
+      }
+      
+      function displayFurnitureItems(type) {
+        for (let i = 0; i < body.body.data.length; i++) {
+          if (body.body.data[i].type === type) {
+            $("#itemsLocation").append(`<li class=furnitureItem id="${body.body.data[i].id}">${body.body.data[i].name}</li>`);
+          }
+        }
+      }
+      
+      console.log(types);
+      console.log(body.body.data);
       console.log(types);
       
     }
