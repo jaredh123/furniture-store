@@ -1,8 +1,37 @@
 body {
-  background-color: lightgray;
+  background-color: lightgrey;
 }
 
 h1 {
   text-align: center;
+  font-weight: bold;
+  margin-top: 50px;
   margin-bottom: 50px;
+}
+
+li {
+  font-size: 18px;
+}
+
+img {
+  max-width: 80%;
+  align-items: center;
+}
+
+.container {
+  background-color: beige;
+  margin-top: 40px;
+}
+
+.labelFontSize {
+  font-weight: bold;
+}
+
+.row {
+  margin-bottom: 40px;
+}
+
+.lowerRow {
+  border-top: 4px solid tan;
+  padding-top: 25px;
 }

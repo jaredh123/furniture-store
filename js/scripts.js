@@ -18,7 +18,7 @@ $(document).ready(function() {
 
       //List types on page
       for (let i = 0; i < types.length; i++) {
-        $("#furnitureTypes").append(`<li class="type" id="${types[i]}"><strong>${types[i]}</strong></li>`);
+        $("#furnitureTypes").append(`<li class="type" id="${types[i]}">${types[i]}</li>`);
       }
 
       function displayFurnitureItems(type) {
@@ -53,7 +53,7 @@ $(document).ready(function() {
             $("#detailsLocation").append(`<p>${body.body.data[i].description}</p>`);
             $("#detailsLocation").append(`<p>Colors: ${colors}.</p>`);
             if (body.body.data[i].dimensions) {
-              $("#detailsLocation").append(`<p>Dimensions: ${body.body.data[i].dimensions.length}" L X ${body.body.data[i].dimensions.width}" W</p>`);
+              $("#detailsLocation").append(`<p>Dimensions: ${body.body.data[i].dimensions.length}" L x ${body.body.data[i].dimensions.width}" W</p>`);
             }
             $("#detailsLocation").append(`<p>Stock: ${body.body.data[i].stock}</p>`);
             $("#detailsLocation").append(`<p><em>${deliverable}</em></p>`);
