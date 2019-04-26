@@ -1,8 +1,5 @@
 $(document).ready(function() {
-  // $("#run").submit(function(event) {
-  //   event.preventDefault();
-  // });
-  
+    
   var request = new XMLHttpRequest();
   request.open('GET', "https://it771mq5n2.execute-api.us-west-2.amazonaws.com/production/furniture/", true);
   request.onload = function() {
@@ -30,11 +27,60 @@ $(document).ready(function() {
             $("#itemsLocation").append(`<li class=furnitureItem id="${body.body.data[i].id}">${body.body.data[i].name}</li>`);
           }
         }
+        $(".furnitureItem").click(function(event) {
+          event.preventDefault();
+          $("#detailsLocation, #imageLocation").empty();
+          let id = this.getAttribute("id");
+          displayItemDetails(id);
+        });
       }
       
-      console.log(types);
-      console.log(body.body.data);
-      console.log(types);
+      function displayItemDetails(id) {
+        id = parseInt(id);
+        for (let i = 0; i < body.body.data.length; i++) {
+          if (body.body.data[i].id === id) {
+            let colors = body.body.data[i].colors.join(", ");
+            let deliverable = "";
+            if (body.body.data[i].deliverable === true) {
+              deliverable = "Delivery available.";
+            }
+            else {
+              deliverable = "Delivery unavailable.";
+            }
+            
+            //Display furniture item details
+            $("#detailsLocation").append(`<p> <span id=name>${body.body.data[i].name}</span> –– $${body.body.data[i].cost}</p>`);
+            $("#detailsLocation").append(`<p>${body.body.data[i].description}</p>`);
+            $("#detailsLocation").append(`<p>Colors: ${colors}</p>`);
+            if (body.body.data[i].dimensions) {
+              $("#detailsLocation").append(`<p>Dimensions: ${body.body.data[i].dimensions.length}"L X ${body.body.data[i].dimensions.width}"W</p>`);
+            }
+            $("#detailsLocation").append(`<p>Stock:${body.body.data[i].stock}</p>`);
+            $("#detailsLocation").append(`<p><em>${deliverable}</em></p>`);
+            
+            //Display image
+            $("#imageLocation").append(`<img src=${body.body.data[i].imageUrl} alt="${body.body.data[i].name} photo">`);
+            
+            console.log(body.body.data[i].id);
+            console.log(body.body.data[i].name);
+            console.log(body.body.data[i].cost);
+            console.log(body.body.data[i].description);
+            console.log(body.body.data[i].dimensions.length, body.body.data[i].dimensions.width);
+            console.log(body.body.data[i].stock);
+            console.log(deliverable);
+          }
+        }
+      }
+      
+      // console.log(types);
+      // console.log(body.body.data);
+      
+      $(".type").click(function(event) {
+        event.preventDefault();
+        $("#itemsLocation").empty();
+        let id = this.getAttribute("id");
+        displayFurnitureItems(id);
+      });
       
     }
   }
