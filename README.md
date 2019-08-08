@@ -22,6 +22,9 @@ A website that makes an api call and then organizes the information for an inter
 * A list of available furniture items are then displayed that match the chosen type.
 * The user clicks any of the available furniture items and the details (name, cost, colors, etc.) of that item are shown below.
 
+## Hosted Link
+* https://jaredh123.github.io/furniture-store/
+
 ## Setup and Use
 * Clone this repository [repo](https://github.com/jaredh123/furniture-store): "$ git clone https://github.com/jaredh123/furniture-store".
 * To edit the project, open the project in your preferred text editor.
@@ -32,8 +35,6 @@ A website that makes an api call and then organizes the information for an inter
 * Must have basic computer use proficiency
 
 ## Built With
-* Terminal
-* Atom
 * HTML
 * CSS
 * JavaScript
