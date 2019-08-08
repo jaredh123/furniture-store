@@ -1,3 +1,4 @@
+/* --------HTML-------- */
 body {
   background-color: lightgrey;
 }
@@ -9,29 +10,38 @@ h1 {
   margin-bottom: 50px;
 }
 
-li {
-  font-size: 18px;
-}
-
 img {
   max-width: 80%;
   align-items: center;
 }
 
+li {
+  font-size: 18px;
+}
+
+/* --------CSS-------- */
 .container {
   background-color: beige;
   margin-top: 40px;
+}
+
+.furnitureItem:hover {
+  cursor: pointer;
 }
 
 .labelFontSize {
   font-weight: bold;
 }
 
+.lowerRow {
+  border-top: 4px solid tan;
+  padding-top: 25px;
+}
+
 .row {
   margin-bottom: 40px;
 }
 
-.lowerRow {
-  border-top: 4px solid tan;
-  padding-top: 25px;
+.type:hover {
+  cursor: pointer;
 }
